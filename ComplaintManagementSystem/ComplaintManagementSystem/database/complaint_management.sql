@@ -1,4 +1,4 @@
-CREATE DATABASE IF NOT EXISTS complaint_management
+CREATE DATABASE complaint_management
   CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 USE complaint_management;
 
