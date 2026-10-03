@@ -1,0 +1,34 @@
+package com;
+
+/** Basic complaint model used to represent a complaint record. */
+public class Complaint {
+    private final int complaintId;
+    private final int userId;
+    private final Integer officerId;
+    private final String complaintType;
+    private final String description;
+    private final String location;
+    private final String priority;
+    private final String status;
+
+    public Complaint(int complaintId, int userId, Integer officerId, String complaintType,
+                     String description, String location, String priority, String status) {
+        this.complaintId = complaintId;
+        this.userId = userId;
+        this.officerId = officerId;
+        this.complaintType = complaintType;
+        this.description = description;
+        this.location = location;
+        this.priority = priority;
+        this.status = status;
+    }
+
+    public int getComplaintId() { return complaintId; }
+    public int getUserId() { return userId; }
+    public Integer getOfficerId() { return officerId; }
+    public String getComplaintType() { return complaintType; }
+    public String getDescription() { return description; }
+    public String getLocation() { return location; }
+    public String getPriority() { return priority; }
+    public String getStatus() { return status; }
+}
