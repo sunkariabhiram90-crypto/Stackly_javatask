@@ -1,0 +1,70 @@
+### Create a ticket
+POST http://localhost:8080/api/tickets
+Content-Type: application/json
+
+{
+  "movieName": "Interstellar",
+  "customerName": "Abhiram",
+  "seatNumber": "A10",
+  "ticketPrice": 250.00,
+  "screeningId": "INT-2026-001"
+}
+
+### List all tickets
+GET http://localhost:8080/api/tickets
+
+### Get ticket by ID
+GET http://localhost:8080/api/tickets/1
+
+### Search by movie name
+GET http://localhost:8080/api/tickets/movie/Interstellar
+
+### Replace ticket details (PUT)
+PUT http://localhost:8080/api/tickets/1
+Content-Type: application/json
+
+{
+  "movieName": "Interstellar",
+  "customerName": "Abhiram S",
+  "seatNumber": "A11",
+  "ticketPrice": 275.00,
+  "screeningId": "INT-2026-001"
+}
+
+### Update selected fields (PATCH)
+PATCH http://localhost:8080/api/tickets/1
+Content-Type: application/json
+
+{
+  "customerName": "Abhiram S"
+}
+
+### Check seat availability
+GET http://localhost:8080/api/tickets/availability?screeningId=INT-2026-001&seatNumber=A10
+
+### Cancel ticket (soft cancellation; releases seat)
+DELETE http://localhost:8080/api/tickets/1
+
+### Invalid sample: blank movie name (expect 400)
+POST http://localhost:8080/api/tickets
+Content-Type: application/json
+
+{
+  "movieName": " ",
+  "customerName": "Abhiram",
+  "seatNumber": "A10",
+  "ticketPrice": 250.00,
+  "screeningId": "INT-2026-001"
+}
+
+### Invalid sample: non-positive price (expect 400)
+POST http://localhost:8080/api/tickets
+Content-Type: application/json
+
+{
+  "movieName": "Interstellar",
+  "customerName": "Abhiram",
+  "seatNumber": "A10",
+  "ticketPrice": 0,
+  "screeningId": "INT-2026-002"
+}
